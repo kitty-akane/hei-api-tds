@@ -8,10 +8,10 @@ servers:
 paths:
   /ping:
     get:
-      description: Returns "pong" to check if the API is working
+      description: Returns "pong"
       responses:
         '200':
-          description: Pong successful
+          description: successful
           content:
             text/plain:
               schema:
