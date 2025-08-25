@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  title: Task manager API
+  version: 1.0.0
+  description: Manage tasks
+servers:
+  - url: http://localhost:8000
+paths:
+  /tasks:
+    get:
+      description: Return all tasks
+      responses:
+        '200':
+          description: List of tasks
+          content:
+            application/json:
+              example:
+                - id: 1
+                  title: Do groceries 
+                  completed: false
+    post:
+      description: Create new tasks
+      responses:
+        '201':
+          description: Tasks created
+          content:
+            application/json:
+              example:
+                - id: 2
+                  title: review API 
+                  completed: false
+    delete:
+      description: Delete multiple tasks
+      responses:
+        '200':
+          description: Deleted tasks
+          content:
+            application/json:
+              example:
+                - id: 1
+                  title: Do groceries 
+                  completed: false
+
+  /tasks/{id}:
+    get:
+      description: Get task by ID
+      responses:
+        '200':
+          description: Task found
+          content:
+            application/json:
+              example:
+                id: 1
+                title: Do groceries
+                completed: false
+        '404':
+          description: Task not found
+          content:
+            application/json:
+              example:
+                message: Task not found
+    delete:
+      description: Delete task by ID
+      responses:
+        '200':
+          description: Deleted task
+          content:
+            application/json:
+              example:
+                id: 1
+                title: Dp groceries
+                completed: false
