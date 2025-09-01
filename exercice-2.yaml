@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: Users API
+  version: 1.0.0
+  description: Get users
+servers:
+  - url: http://localhost:8000
+paths:
+  /users:
+    get:
+      description: Returns a list of users
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            example: 1
+        - name: size
+          in: query
+          schema:
+            type: integer
+            example: 20
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              example:
+                - id: 1
+                  name: Sitraka
+                  email: sitraka@example.com
+        '400':
+          description: Bad parameters
+          content:
+            application/json:
+              example:
+                error: Bad types for provided parameters
